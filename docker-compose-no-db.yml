@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  pfm-user-service:
+    image: ghcr.io/adrimf89/pfm-user-service:7712e89
+    container_name: pfm-user-service
+    ports:
+      - "20710:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: dev # or any profile your app expects
+      # Add any other required environment variables here
+    restart: unless-stopped
+  
+  pfm-transaction-service:
+    image: ghcr.io/adrimf89/pfm-transaction-service:d735ef2
+    container_name: pfm-transaction-service
+    ports:
+      - "20711:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: dev # or any profile your app expects
+      # Add any other required environment variables here
+    restart: unless-stopped
+
